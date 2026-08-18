@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云南·香格里拉+大理 四日秘境之旅 | 旅行攻略</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --tibetan-red: #B8432C;
+    --tibetan-red-dark: #8B2E1C;
+    --gold: #D4A24A;
+    --gold-light: #E8C87A;
+    --lake-blue: #2E86AB;
+    --pine-green: #3A5A40;
+    --cream: #F7F2E8;
+    --cream-deep: #EDE5D3;
+    --warm-brown: #5C4033;
+    --deep-brown: #2B2118;
+    --mid-brown: #8B7355;
+    --line: rgba(92, 64, 51, 0.15);
+    --shadow-soft: 0 4px 24px rgba(43, 33, 24, 0.08);
+    --shadow-card: 0 8px 32px rgba(43, 33, 24, 0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400; color: var(--deep-brown); background: var(--cream);
+    line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: 'Noto Serif SC', 'Songti SC', serif; font-weight: 700; line-height: 1.3; color: var(--deep-brown); }
+  a { color: var(--tibetan-red); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: var(--tibetan-red-dark); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+  .prayer-nav { position: fixed; left: 0; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 0; }
+  .prayer-nav a { display: block; width: 8px; height: 48px; transition: width 0.3s ease; position: relative; }
+  .prayer-nav a::after { content: attr(data-label); position: absolute; left: 16px; top: 50%; transform: translateY(-50%); white-space: nowrap; font-size: 12px; font-weight: 500; color: var(--warm-brown); background: var(--cream); padding: 4px 10px; border-radius: 4px; opacity: 0; pointer-events: none; transition: opacity 0.2s; border: 1px solid var(--line); }
+  .prayer-nav a:hover { width: 12px; }
+  .prayer-nav a:hover::after { opacity: 1; }
+  .prayer-nav a:nth-child(1) { background: var(--tibetan-red); }
+  .prayer-nav a:nth-child(2) { background: var(--gold); }
+  .prayer-nav a:nth-child(3) { background: var(--lake-blue); }
+  .prayer-nav a:nth-child(4) { background: var(--pine-green); }
+  .prayer-nav a:nth-child(5) { background: var(--tibetan-red); }
+  .prayer-nav a:nth-child(6) { background: var(--gold); }
+  .prayer-nav a:nth-child(7) { background: var(--lake-blue); }
+  .prayer-nav a:nth-child(8) { background: var(--pine-green); }
+
+  .hero { position: relative; width: 100%; min-height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1920&q=80'); background-size: cover; background-position: center; filter: brightness(0.65) saturate(1.1); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(43,33,24,0.2) 0%, rgba(43,33,24,0.1) 40%, rgba(43,33,24,0.6) 100%); }
+  .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; padding: 40px 20px; max-width: 800px; }
+  .hero-eyebrow { font-family: 'Noto Serif SC', serif; font-size: 18px; font-weight: 400; letter-spacing: 8px; margin-bottom: 24px; opacity: 0.9; text-indent: 8px; }
+  .hero-title { font-family: 'Noto Serif SC', serif; font-size: clamp(40px, 7vw, 72px); font-weight: 900; color: #fff; margin-bottom: 16px; letter-spacing: 4px; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+  .hero-subtitle { font-size: 20px; font-weight: 300; opacity: 0.9; margin-bottom: 40px; letter-spacing: 2px; }
+  .hero-meta { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; }
+  .hero-meta-item { text-align: center; }
+  .hero-meta-item .num { font-family: 'Noto Serif SC', serif; font-size: 36px; font-weight: 700; color: var(--gold-light); display: block; line-height: 1; }
+  .hero-meta-item .label { font-size: 13px; opacity: 0.8; margin-top: 6px; letter-spacing: 1px; }
+  .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; color: rgba(255,255,255,0.7); font-size: 12px; letter-spacing: 3px; animation: floatDown 2s ease-in-out infinite; }
+  .hero-scroll svg { display: block; margin: 8px auto 0; }
+  @keyframes floatDown { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+  .prayer-flags-top { position: absolute; top: 0; left: 0; right: 0; height: 6px; display: flex; z-index: 3; }
+  .prayer-flags-top span { flex: 1; height: 100%; }
+  .prayer-flags-top span:nth-child(1) { background: var(--tibetan-red); }
+  .prayer-flags-top span:nth-child(2) { background: var(--gold); }
+  .prayer-flags-top span:nth-child(3) { background: var(--lake-blue); }
+  .prayer-flags-top span:nth-child(4) { background: var(--pine-green); }
+  .prayer-flags-top span:nth-child(5) { background: var(--tibetan-red); }
+
+  .section { padding: 100px 0; position: relative; }
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-eyebrow { font-family: 'Noto Serif SC', serif; font-size: 14px; color: var(--tibetan-red); letter-spacing: 6px; margin-bottom: 12px; text-transform: uppercase; }
+  .section-title { font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin-bottom: 16px; position: relative; display: inline-block; }
+  .section-title::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 48px; height: 3px; background: var(--gold); }
+  .section-desc { color: var(--mid-brown); font-size: 15px; margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .tibetan-divider { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 24px 0; }
+  .tibetan-divider .line { width: 60px; height: 1px; background: var(--line); }
+  .tibetan-divider .diamond { width: 10px; height: 10px; background: var(--gold); transform: rotate(45deg); }
+
+  .overview-section { background: var(--cream); }
+  .overview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .overview-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-soft); transition: transform 0.3s, box-shadow 0.3s; position: relative; }
+  .overview-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+  .overview-card-header { position: relative; height: 120px; overflow: hidden; }
+  .overview-card-header::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--tibetan-red), var(--tibetan-red-dark)); opacity: 0.9; }
+  .overview-card:nth-child(2) .overview-card-header::before { background: linear-gradient(135deg, var(--gold), #C49030); }
+  .overview-card:nth-child(3) .overview-card-header::before { background: linear-gradient(135deg, var(--lake-blue), #1E5F7A); }
+  .overview-card:nth-child(4) .overview-card-header::before { background: linear-gradient(135deg, var(--pine-green), #2A4030); }
+  .overview-card-header::after { content: ''; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); width: 70%; height: 20px; background: #fff; clip-path: polygon(10% 100%, 90% 100%, 100% 0, 0 0); }
+  .overview-day-num { position: relative; z-index: 1; font-family: 'Noto Serif SC', serif; font-size: 48px; font-weight: 900; color: rgba(255,255,255,0.95); text-align: center; line-height: 80px; letter-spacing: 2px; }
+  .overview-day-num small { font-size: 16px; font-weight: 400; margin-left: 4px; opacity: 0.8; }
+  .overview-card-body { padding: 24px 20px 28px; }
+  .overview-date { font-size: 13px; color: var(--mid-brown); margin-bottom: 8px; font-weight: 500; }
+  .overview-route { font-family: 'Noto Serif SC', serif; font-size: 17px; font-weight: 700; color: var(--deep-brown); margin-bottom: 12px; min-height: 48px; }
+  .overview-highlights { list-style: none; padding: 0; }
+  .overview-highlights li { font-size: 13px; color: var(--warm-brown); padding: 4px 0; padding-left: 16px; position: relative; }
+  .overview-highlights li::before { content: ''; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+  .overview-stay { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 12px; color: var(--mid-brown); display: flex; align-items: center; gap: 6px; }
+
+  .days-section { background: var(--cream-deep); position: relative; }
+  .day-block { margin-bottom: 80px; }
+  .day-block:last-child { margin-bottom: 0; }
+  .day-header { display: flex; align-items: center; gap: 24px; margin-bottom: 40px; position: relative; }
+  .day-badge { flex-shrink: 0; width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, var(--tibetan-red), var(--tibetan-red-dark)); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Noto Serif SC', serif; box-shadow: 0 4px 16px rgba(184, 67, 44, 0.3); }
+  .day-badge.day-2 { background: linear-gradient(135deg, #C49030, var(--gold)); }
+  .day-badge.day-3 { background: linear-gradient(135deg, var(--lake-blue), #1E5F7A); }
+  .day-badge.day-4 { background: linear-gradient(135deg, var(--pine-green), #2A4030); }
+  .day-badge .num { font-size: 32px; font-weight: 900; line-height: 1; }
+  .day-badge .label { font-size: 11px; margin-top: 4px; letter-spacing: 2px; opacity: 0.9; }
+  .day-title-wrap { flex: 1; }
+  .day-date { font-size: 14px; color: var(--mid-brown); font-weight: 500; margin-bottom: 4px; }
+  .day-title { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+  .day-theme { font-size: 14px; color: var(--tibetan-red); font-weight: 500; }
+  .day-image { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 32px; box-shadow: var(--shadow-card); }
+
+  .timeline { position: relative; padding-left: 60px; }
+  .timeline::before { content: ''; position: absolute; left: 19px; top: 8px; bottom: 8px; width: 2px; background: repeating-linear-gradient(to bottom, var(--gold) 0, var(--gold) 6px, transparent 6px, transparent 12px); }
+  .timeline-item { position: relative; margin-bottom: 24px; background: #fff; border-radius: 8px; padding: 20px 24px; box-shadow: var(--shadow-soft); transition: transform 0.2s, box-shadow 0.2s; }
+  .timeline-item:hover { transform: translateX(4px); box-shadow: var(--shadow-card); }
+  .timeline-item::before { content: ''; position: absolute; left: -49px; top: 24px; width: 14px; height: 14px; border-radius: 50%; background: var(--cream); border: 3px solid var(--gold); z-index: 1; }
+  .timeline-time { font-family: 'Noto Sans Mono', monospace; font-size: 14px; font-weight: 500; color: var(--tibetan-red); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .timeline-title { font-family: 'Noto Serif SC', serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--deep-brown); }
+  .timeline-desc { font-size: 14px; color: var(--warm-brown); line-height: 1.8; }
+  .timeline-transport { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--mid-brown); background: var(--cream); padding: 4px 10px; border-radius: 20px; margin-top: 8px; border: 1px solid var(--line); }
+  .timeline-item.transfer { background: transparent; box-shadow: none; padding: 8px 16px; margin-bottom: 16px; border: 1px dashed var(--line); }
+  .timeline-item.transfer::before { border-color: var(--mid-brown); background: var(--cream-deep); width: 10px; height: 10px; left: -47px; top: 18px; }
+  .timeline-item.transfer .timeline-title { font-size: 14px; font-weight: 500; color: var(--mid-brown); margin-bottom: 0; }
+  .timeline-item.transfer .timeline-time { color: var(--mid-brown); margin-bottom: 4px; }
+
+  .hotel-section { background: var(--cream); }
+  .hotel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .hotel-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; }
+  .hotel-card.recommended { position: relative; border: 2px solid var(--gold); }
+  .hotel-card.recommended::before { content: '推荐入住'; position: absolute; top: 16px; right: -32px; background: var(--gold); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 40px; transform: rotate(45deg); z-index: 2; letter-spacing: 2px; }
+  .hotel-header { padding: 28px 28px 20px; background: linear-gradient(135deg, var(--cream), var(--cream-deep)); border-bottom: 1px solid var(--line); }
+  .hotel-city { font-size: 12px; color: var(--tibetan-red); font-weight: 600; letter-spacing: 2px; margin-bottom: 6px; }
+  .hotel-name { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: var(--deep-brown); margin-bottom: 4px; }
+  .hotel-rating { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--mid-brown); }
+  .hotel-rating .score { color: var(--gold); font-weight: 700; font-size: 16px; }
+  .hotel-stars { color: var(--gold); }
+  .hotel-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+  .hotel-address { font-size: 13px; color: var(--mid-brown); margin-bottom: 16px; display: flex; align-items: flex-start; gap: 6px; }
+  .hotel-address svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; fill: var(--tibetan-red); }
+  .hotel-features { list-style: none; margin-bottom: 20px; flex: 1; }
+  .hotel-features li { font-size: 14px; color: var(--warm-brown); padding: 6px 0; padding-left: 20px; position: relative; }
+  .hotel-features li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 10px; top: 8px; }
+  .hotel-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px dashed var(--line); }
+  .hotel-price { display: flex; flex-direction: column; }
+  .hotel-price .amount { font-family: 'Noto Serif SC', serif; font-size: 24px; font-weight: 700; color: var(--tibetan-red); line-height: 1; }
+  .hotel-price .amount small { font-size: 13px; font-weight: 400; color: var(--mid-brown); }
+  .hotel-price .unit { font-size: 12px; color: var(--mid-brown); margin-top: 2px; }
+  .btn-book { display: inline-flex; align-items: center; gap: 6px; background: var(--tibetan-red); color: #fff; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 500; transition: background 0.2s; text-decoration: none; }
+  .btn-book:hover { background: var(--tibetan-red-dark); color: #fff; }
+
+  .food-section { background: var(--cream-deep); }
+  .food-city-group { margin-bottom: 48px; }
+  .food-city-group:last-child { margin-bottom: 0; }
+  .food-city-title { font-family: 'Noto Serif SC', serif; font-size: 20px; font-weight: 700; color: var(--tibetan-red); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .food-city-title::before { content: ''; width: 4px; height: 20px; background: var(--gold); border-radius: 2px; }
+  .food-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .food-card { background: #fff; border-radius: 10px; padding: 24px; box-shadow: var(--shadow-soft); transition: transform 0.2s, box-shadow 0.2s; }
+  .food-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
+  .food-name { font-family: 'Noto Serif SC', serif; font-size: 18px; font-weight: 700; color: var(--deep-brown); margin-bottom: 4px; }
+  .food-meta { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--mid-brown); margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+  .food-meta .price { color: var(--tibetan-red); font-weight: 600; }
+  .food-dishes { margin-bottom: 12px; }
+  .food-dishes-label { font-size: 12px; color: var(--mid-brown); margin-bottom: 6px; font-weight: 500; }
+  .food-dishes-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .food-tag { font-size: 12px; padding: 3px 10px; background: var(--cream); border-radius: 20px; color: var(--warm-brown); border: 1px solid var(--line); }
+  .food-link { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: var(--tibetan-red); font-weight: 500; margin-top: 4px; }
+  .food-link:hover { color: var(--tibetan-red-dark); }
+
+  .budget-section { background: var(--cream); }
+  .budget-wrap { background: #fff; border-radius: 12px; padding: 40px; box-shadow: var(--shadow-soft); max-width: 800px; margin: 0 auto; }
+  .budget-total { text-align: center; margin-bottom: 36px; padding-bottom: 28px; border-bottom: 2px solid var(--cream-deep); }
+  .budget-total-label { font-size: 14px; color: var(--mid-brown); margin-bottom: 8px; letter-spacing: 2px; }
+  .budget-total-amount { font-family: 'Noto Serif SC', serif; font-size: 42px; font-weight: 900; color: var(--tibetan-red); line-height: 1; }
+  .budget-total-amount small { font-size: 16px; font-weight: 400; color: var(--mid-brown); }
+  .budget-total-note { font-size: 12px; color: var(--mid-brown); margin-top: 8px; }
+  .budget-list { list-style: none; }
+  .budget-item { display: flex; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .budget-item:last-child { border-bottom: none; }
+  .budget-item-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px; flex-shrink: 0; background: var(--cream); }
+  .budget-item-icon svg { width: 20px; height: 20px; fill: var(--warm-brown); }
+  .budget-item-label { flex: 1; font-size: 15px; color: var(--deep-brown); font-weight: 500; }
+  .budget-item-amount { font-family: 'Noto Serif SC', serif; font-size: 18px; font-weight: 700; color: var(--warm-brown); font-variant-numeric: tabular-nums; }
+
+  .packing-section { background: var(--cream-deep); }
+  .packing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .packing-card { background: #fff; border-radius: 10px; padding: 24px; box-shadow: var(--shadow-soft); }
+  .packing-card-title { font-family: 'Noto Serif SC', serif; font-size: 16px; font-weight: 700; color: var(--deep-brown); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--gold); display: inline-block; }
+  .packing-list { list-style: none; }
+  .packing-list li { font-size: 13px; color: var(--warm-brown); padding: 5px 0; padding-left: 18px; position: relative; line-height: 1.6; }
+  .packing-list li::before { content: '○'; position: absolute; left: 0; color: var(--gold); font-size: 10px; top: 7px; }
+
+  .tips-section { background: var(--cream); }
+  .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .tip-card { background: #fff; border-radius: 10px; padding: 20px 24px; box-shadow: var(--shadow-soft); display: flex; gap: 16px; border-left: 4px solid var(--tibetan-red); }
+  .tip-card:nth-child(2) { border-left-color: var(--gold); }
+  .tip-card:nth-child(3) { border-left-color: var(--lake-blue); }
+  .tip-card:nth-child(4) { border-left-color: var(--pine-green); }
+  .tip-card:nth-child(5) { border-left-color: var(--tibetan-red); }
+  .tip-card:nth-child(6) { border-left-color: var(--gold); }
+  .tip-card:nth-child(7) { border-left-color: var(--lake-blue); }
+  .tip-num { font-family: 'Noto Serif SC', serif; font-size: 32px; font-weight: 900; color: var(--cream-deep); line-height: 1; flex-shrink: 0; -webkit-text-stroke: 1px var(--line); }
+  .tip-content { flex: 1; }
+  .tip-text { font-size: 14px; color: var(--warm-brown); line-height: 1.8; }
+  .tip-text strong { color: var(--deep-brown); font-weight: 600; }
+
+  .vs-section { background: linear-gradient(135deg, var(--cream-deep), #E5DDC8); }
+  .vs-wrap { display: grid; grid-template-columns: 1fr auto 1fr; gap: 32px; align-items: stretch; }
+  .vs-city { background: #fff; border-radius: 12px; padding: 32px; box-shadow: var(--shadow-soft); position: relative; }
+  .vs-city.winner { border: 2px solid var(--gold); }
+  .vs-city.winner::after { content: '✓ 本次选择'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 16px; border-radius: 20px; letter-spacing: 1px; white-space: nowrap; }
+  .vs-city-name { font-family: 'Noto Serif SC', serif; font-size: 24px; font-weight: 700; text-align: center; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+  .vs-city.winner .vs-city-name { color: var(--tibetan-red); }
+  .vs-list { list-style: none; }
+  .vs-list li { font-size: 14px; color: var(--warm-brown); padding: 8px 0; padding-left: 24px; position: relative; line-height: 1.6; }
+  .vs-city.winner .vs-list li::before { content: '+'; position: absolute; left: 0; color: var(--pine-green); font-weight: 700; }
+  .vs-city:not(.winner) .vs-list li::before { content: '−'; position: absolute; left: 0; color: var(--mid-brown); font-weight: 500; }
+  .vs-divider { display: flex; align-items: center; justify-content: center; }
+  .vs-divider-text { font-family: 'Noto Serif SC', serif; font-size: 28px; font-weight: 900; color: var(--gold); letter-spacing: 2px; }
+
+  .footer { background: var(--deep-brown); color: rgba(255,255,255,0.6); padding: 48px 0 32px; text-align: center; }
+  .footer-quote { font-family: 'Noto Serif SC', serif; font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 16px; font-style: italic; }
+  .footer-meta { font-size: 13px; opacity: 0.6; }
+  .footer-flags { height: 4px; display: flex; margin-bottom: 32px; }
+  .footer-flags span { flex: 1; height: 100%; }
+  .footer-flags span:nth-child(1) { background: var(--tibetan-red); }
+  .footer-flags span:nth-child(2) { background: var(--gold); }
+  .footer-flags span:nth-child(3) { background: var(--lake-blue); }
+  .footer-flags span:nth-child(4) { background: var(--pine-green); }
+  .footer-flags span:nth-child(5) { background: var(--tibetan-red); }
+
+  @media (max-width: 1024px) {
+    .overview-grid { grid-template-columns: repeat(2, 1fr); }
+    .packing-grid { grid-template-columns: repeat(2, 1fr); }
+    .prayer-nav { display: none; }
+  }
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .section { padding: 60px 0; }
+    .hero-meta { gap: 20px; }
+    .hero-meta-item .num { font-size: 28px; }
+    .overview-grid { grid-template-columns: 1fr; }
+    .hotel-grid { grid-template-columns: 1fr; }
+    .food-grid { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .packing-grid { grid-template-columns: 1fr 1fr; }
+    .vs-wrap { grid-template-columns: 1fr; }
+    .vs-divider-text { transform: rotate(90deg); }
+    .timeline { padding-left: 40px; }
+    .timeline::before { left: 10px; }
+    .timeline-item::before { left: -36px; }
+    .timeline-item.transfer::before { left: -34px; }
+    .day-header { gap: 16px; }
+    .day-badge { width: 70px; height: 70px; }
+    .day-badge .num { font-size: 24px; }
+    .day-title { font-size: 22px; }
+    .budget-wrap { padding: 24px; }
+    .budget-total-amount { font-size: 32px; }
+    .day-image { height: 200px; }
+  }
+  @media (max-width: 480px) {
+    .packing-grid { grid-template-columns: 1fr; }
+    .hero-eyebrow { font-size: 14px; letter-spacing: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="prayer-nav">
+  <a href="#overview" data-label="行程总览"></a>
+  <a href="#itinerary" data-label="每日行程"></a>
+  <a href="#hotels" data-label="住宿推荐"></a>
+  <a href="#food" data-label="美食推荐"></a>
+  <a href="#budget" data-label="预算估算"></a>
+  <a href="#packing" data-label="必备清单"></a>
+  <a href="#tips" data-label="重要提醒"></a>
+  <a href="#vs" data-label="大理vs丽江"></a>
+</nav>
+
+<section class="hero">
+  <div class="prayer-flags-top"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">云 南 秘 境 之 旅</p>
+    <h1 class="hero-title">香格里拉 · 大理</h1>
+    <p class="hero-subtitle">四日三晚 · 雪山圣湖 · 风花雪月</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="num">4</span><span class="label">天 行 程</span></div>
+      <div class="hero-meta-item"><span class="num">4</span><span class="label">人 同 行</span></div>
+      <div class="hero-meta-item"><span class="num">2</span><span class="label">座 城 市</span></div>
+      <div class="hero-meta-item"><span class="num">10.04</span><span class="label">出 发 日</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">向 下 滑 动
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<section class="section overview-section" id="overview">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">ITINERARY OVERVIEW</p>
+      <h2 class="section-title">行 程 总 览</h2>
+      <div class="tibetan-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      <p class="section-desc">从海拔3300米的藏地秘境到风花雪月的洱海边，四天时间，两座城市，一段不赶路的高原之旅</p>
+    </div>
+    <div class="overview-grid">
+      <div class="overview-card">
+        <div class="overview-card-header"><div class="overview-day-num">一<small>DAY</small></div></div>
+        <div class="overview-card-body">
+          <p class="overview-date">10月4日 · 周六</p>
+          <h3 class="overview-route">上海 ✈ 香格里拉</h3>
+          <ul class="overview-highlights"><li>独克宗古城漫步</li><li>龟山公园转经筒</li><li>海拔适应静养</li></ul>
+          <p class="overview-stay">🏠 住：迪庆月光城英迪格酒店</p>
+        </div>
+      </div>
+      <div class="overview-card">
+        <div class="overview-card-header"><div class="overview-day-num">二<small>DAY</small></div></div>
+        <div class="overview-card-body">
+          <p class="overview-date">10月5日 · 周日</p>
+          <h3 class="overview-route">香格里拉深度游</h3>
+          <ul class="overview-highlights"><li>松赞林寺朝圣</li><li>纳帕海环湖</li><li>藏式晚餐+广场舞</li></ul>
+          <p class="overview-stay">🏠 住：迪庆月光城英迪格酒店</p>
+        </div>
+      </div>
+      <div class="overview-card">
+        <div class="overview-card-header"><div class="overview-day-num">三<small>DAY</small></div></div>
+        <div class="overview-card-body">
+          <p class="overview-date">10月6日 · 周一</p>
+          <h3 class="overview-route">普达措 → 大理</h3>
+          <ul class="overview-highlights"><li>普达措属都湖</li><li>城际动车穿越</li><li>大理古城夜游</li></ul>
+          <p class="overview-stay">🏠 住：大理洱海天域英迪格</p>
+        </div>
+      </div>
+      <div class="overview-card">
+        <div class="overview-card-header"><div class="overview-day-num">四<small>DAY</small></div></div>
+        <div class="overview-card-body">
+          <p class="overview-date">10月7日 · 周二</p>
+          <h3 class="overview-route">大理 ✈ 上海</h3>
+          <ul class="overview-highlights"><li>洱海生态廊道</li><li>磻溪S弯漫步</li><li>白族特色午餐</li></ul>
+          <p class="overview-stay">↩ 返程：大理→上海航班</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section days-section" id="itinerary">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">DAILY ITINERARY</p>
+      <h2 class="section-title">每 日 详 情</h2>
+      <div class="tibetan-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      <p class="section-desc">精确到小时的时间表，含每段交通距离与时间，让旅途了然于心</p>
+    </div>
+
+    <div class="day-block">
+      <div class="day-header">
+        <div class="day-badge"><span class="num">壹</span><span class="label">DAY 01</span></div>
+        <div class="day-title-wrap"><p class="day-date">10月4日 · 星期六</p><h3 class="day-title">上海 → 香格里拉</h3><p class="day-theme">海拔适应日 · 初见月光之城</p></div>
+      </div>
+      <img class="day-image" src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=1600&q=80" alt="独克宗古城">
+      <div class="timeline">
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">✈</span> 08:00 — 14:30</p><h4 class="timeline-title">上海 → 迪庆香格里拉机场</h4><p class="timeline-desc">浦东/虹桥机场出发，直飞迪庆香格里拉机场（DIG），飞行约6-7小时，部分航班经停昆明。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">14:30 — 14:50</p><h4 class="timeline-title">🚗 机场 → 酒店 · 约6公里 · 车程15-20分钟</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🏨</span> 14:50 — 17:00</p><h4 class="timeline-title">酒店入住 · 海拔适应</h4><p class="timeline-desc">办理入住后卧床休息，适应3300米海拔。第一天<strong>不要洗澡、不要剧烈运动</strong>，避免感冒诱发高反。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">17:00 — 17:10</p><h4 class="timeline-title">🚶 酒店步行至独克宗古城 · 约500米 · 步行8分钟</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🏯</span> 17:10 — 19:00</p><h4 class="timeline-title">独克宗古城游览</h4><p class="timeline-desc">漫步青石板路，探访藏式民居；登龟山公园转动世界最大转经筒（需十几人合力）；在月光广场感受藏地的黄昏。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">19:00 — 19:10</p><h4 class="timeline-title">🚶 古城内步行至餐厅 · 约300米 · 步行5分钟</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🍲</span> 19:10 — 21:00</p><h4 class="timeline-title">晚餐：塔洛藏餐吧</h4><p class="timeline-desc">招牌牦牛肉铜锅火锅、现烤青稞饼、酥油茶。地道藏式风味，为高原之旅接风。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">21:00 — 21:10</p><h4 class="timeline-title">🚶 步行回酒店休息</h4></div>
+      </div>
+    </div>
+
+    <div class="day-block">
+      <div class="day-header">
+        <div class="day-badge day-2"><span class="num">贰</span><span class="label">DAY 02</span></div>
+        <div class="day-title-wrap"><p class="day-date">10月5日 · 星期日</p><h3 class="day-title">香格里拉深度游</h3><p class="day-theme">松赞林寺朝圣 · 纳帕海环湖</p></div>
+      </div>
+      <img class="day-image" src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1600&q=80" alt="松赞林寺">
+      <div class="timeline">
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🍳</span> 07:30 — 08:30</p><h4 class="timeline-title">酒店早餐</h4><p class="timeline-desc">悠闲享用早餐，储备一天的能量。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">08:30 — 08:50</p><h4 class="timeline-title">🚗 酒店 → 松赞林寺 · 约8公里 · 车程20分钟 · 打车约15元</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🛕</span> 08:50 — 11:30</p><h4 class="timeline-title">噶丹·松赞林寺</h4><p class="timeline-desc">"小布达拉宫"，云南最大藏传佛教寺院。门票+观光车115元/人，建议请讲解员（约100元）。寺前拉姆央措湖可拍摄松赞林寺倒影。</p><span class="timeline-transport">🛕 景区摆渡车约10分钟</span></div>
+        <div class="timeline-item transfer"><p class="timeline-time">11:30 — 11:52</p><h4 class="timeline-title">🚗 松赞林寺 → 纳帕海依拉草原 · 约8.7公里 · 车程22分钟</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🍜</span> 11:52 — 12:50</p><h4 class="timeline-title">纳帕海藏家乐午餐</h4><p class="timeline-desc">附近藏家乐享用牦牛肉火锅或简餐，体验藏式风情。</p></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🏞</span> 12:50 — 16:00</p><h4 class="timeline-title">纳帕海环湖</h4><p class="timeline-desc">包车约250元/半天，环湖一圈约40公里，随停随拍。高原湿地草原、牦牛马匹、远处雪山，10月草甸金黄，美不胜收。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">16:00 — 16:25</p><h4 class="timeline-title">🚗 纳帕海 → 酒店 · 约12公里 · 车程25分钟</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">😴</span> 16:25 — 18:30</p><h4 class="timeline-title">酒店休息</h4><p class="timeline-desc">回酒店稍作休整，为晚上活动养精蓄锐。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">18:30 — 18:45</p><h4 class="timeline-title">🚶 酒店步行至古城餐厅 · 约500米 · 步行8分钟</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🍷</span> 18:45 — 20:30</p><h4 class="timeline-title">晚餐：静静的嘛呢石藏餐吧</h4><p class="timeline-desc">铜锅牦牛肉、烤松茸、自酿青稞酒。古城内口碑极好的藏餐厅。</p></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">💃</span> 20:30 — 21:00</p><h4 class="timeline-title">月光广场藏族广场舞</h4><p class="timeline-desc">月光广场看藏族广场舞，可参与其中，感受当地居民的热情。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">21:00</p><h4 class="timeline-title">🚶 回酒店休息</h4></div>
+      </div>
+    </div>
+
+    <div class="day-block">
+      <div class="day-header">
+        <div class="day-badge day-3"><span class="num">叁</span><span class="label">DAY 03</span></div>
+        <div class="day-title-wrap"><p class="day-date">10月6日 · 星期一</p><h3 class="day-title">香格里拉 → 大理</h3><p class="day-theme">普达措圣湖 · 动车穿境南下</p></div>
+      </div>
+      <img class="day-image" src="https://images.unsplash.com/photo-1553191004-cf4fa4884dcd?w=1600&q=80" alt="普达措国家公园">
+      <div class="timeline">
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🍳</span> 07:00 — 08:00</p><h4 class="timeline-title">酒店早餐 · 退房</h4><p class="timeline-desc">早起享用早餐，办理退房手续，行李装车出发。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">08:00 — 08:35</p><h4 class="timeline-title">🚗 酒店 → 普达措国家公园 · 约22公里 · 车程35分钟 · 包车往返约300元</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🏔</span> 08:50 — 12:00</p><h4 class="timeline-title">普达措国家公园</h4><p class="timeline-desc">门票+环保车138元/人。属都湖3.3公里环湖木栈道，高原原始森林+高山湖泊，海拔3600-4100米，<strong>务必慢走</strong>，走不动可坐环保车。游玩约3小时。</p><span class="timeline-transport">🛕 景区环保车约15分钟</span></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🍱</span> 12:00 — 12:30</p><h4 class="timeline-title">景区内简餐</h4><p class="timeline-desc">景区内简单用餐，补充体力。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">12:30 — 13:26</p><h4 class="timeline-title">🚗 普达措 → 香格里拉火车站 · 约42公里 · 车程56分钟</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🎫</span> 13:26 — 14:50</p><h4 class="timeline-title">车站候车 · 取票</h4><p class="timeline-desc">建议提前1小时到站候车。动车票提前15天在12306购买，<strong>C988次（15:01发车）</strong>时间最合适。</p></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🚄</span> 15:01 — 18:16</p><h4 class="timeline-title">C988次城际动车 · 香格里拉→大理</h4><p class="timeline-desc">全程3小时15分钟，二等座129元/人，经停丽江、鹤庆。沿途欣赏滇西北风光。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">18:16 — 18:30</p><h4 class="timeline-title">🚶 出站、打车</h4></div>
+        <div class="timeline-item transfer"><p class="timeline-time">18:30 — 18:45</p><h4 class="timeline-title">🚗 大理站 → 洱海天域英迪格酒店 · 约3公里 · 车程11分钟</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🏨</span> 18:45 — 19:15</p><h4 class="timeline-title">酒店入住 · 休息</h4><p class="timeline-desc">抵达大理洱海天域英迪格酒店，办理入住，稍作休息。海拔降至1970米，身体顿感轻松。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">19:15 — 19:40</p><h4 class="timeline-title">🚗 酒店 → 大理古城 · 约10公里 · 车程20-25分钟 · 打车约30元</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🏮</span> 19:40 — 21:30</p><h4 class="timeline-title">大理古城夜游 · 晚餐</h4><p class="timeline-desc">逛人民路、洋人街，感受大理古城的夜色。晚餐：段公子·精品云南菜，招牌雕梅扣肉、风花雪月鱼、苍山野生菌。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">21:30 — 22:00</p><h4 class="timeline-title">🚗 回酒店休息</h4></div>
+      </div>
+    </div>
+
+    <div class="day-block">
+      <div class="day-header">
+        <div class="day-badge day-4"><span class="num">肆</span><span class="label">DAY 04</span></div>
+        <div class="day-title-wrap"><p class="day-date">10月7日 · 星期二</p><h3 class="day-title">大理 → 上海</h3><p class="day-theme">洱海晨曦 · 圆满归途</p></div>
+      </div>
+      <img class="day-image" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80" alt="洱海生态廊道">
+      <div class="timeline">
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🌅</span> 07:00 — 07:30</p><h4 class="timeline-title">洱海日出</h4><p class="timeline-desc">酒店阳台看洱海日出，酒店就在洱海边，推窗见海。</p></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🍳</span> 07:30 — 08:30</p><h4 class="timeline-title">酒店早餐</h4><p class="timeline-desc">面朝洱海享用早餐，为最后一天的行程补充能量。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">08:30 — 08:50</p><h4 class="timeline-title">🚗 酒店 → 洱海生态廊道才村码头 · 约10公里 · 车程15-20分钟</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🚲</span> 08:50 — 11:30</p><h4 class="timeline-title">洱海生态廊道漫步</h4><p class="timeline-desc">才村码头→磻溪村S弯，约3-4公里平坦步道，可步行或租自行车（廊道观光车可选）。洱海+苍山美景，10月天气晴朗，拍照绝佳。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">11:30 — 11:45</p><h4 class="timeline-title">🚗 才村 → 大理古城附近餐厅 · 约3公里 · 车程10分钟</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🐟</span> 11:45 — 13:15</p><h4 class="timeline-title">白族特色午餐</h4><p class="timeline-desc">酸辣鱼、水性杨花、黄焖鸡、乳扇，品尝地道白族风味。</p></div>
+        <div class="timeline-item transfer"><p class="timeline-time">13:15 — 14:00</p><h4 class="timeline-title">🚗 古城/餐厅 → 大理荒草坝机场 · 约28公里 · 车程40-45分钟 · 打车约80-100元</h4></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">🛫</span> 14:00 — 15:30</p><h4 class="timeline-title">机场值机 · 安检</h4><p class="timeline-desc">建议选16:00以后的航班，飞行约3小时，返回上海。</p></div>
+        <div class="timeline-item"><p class="timeline-time"><span class="icon">✈</span> 15:30 以后</p><h4 class="timeline-title">大理 → 上海</h4><p class="timeline-desc">结束愉快的云南之旅，带着满满的回忆返程。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hotel-section" id="hotels">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">ACCOMMODATION</p>
+      <h2 class="section-title">住 宿 推 荐</h2>
+      <div class="tibetan-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      <p class="section-desc">精选IHG品牌及本土精品酒店，确保旅途舒适安心</p>
+    </div>
+    <div class="hotel-grid">
+      <div class="hotel-card recommended">
+        <div class="hotel-header">
+          <p class="hotel-city">香格里拉 · 2晚</p>
+          <h3 class="hotel-name">迪庆月光城英迪格酒店</h3>
+          <div class="hotel-rating"><span class="score">9.6</span><span class="hotel-stars">★★★★★</span><span>IHG 品牌 · 超棒</span></div>
+        </div>
+        <div class="hotel-body">
+          <p class="hotel-address"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>香格里拉市建塘镇金龙社区东廊1000号</p>
+          <ul class="hotel-features"><li>紧邻独克宗古城，步行5分钟到转经筒</li><li>全屋弥散式供氧 + 地暖，高反友好</li><li>IHG 品牌服务稳定，品质有保障</li><li>藏式设计风格，融入当地文化</li></ul>
+          <div class="hotel-footer">
+            <div class="hotel-price"><span class="amount">¥1200 <small>- 1800</small></span><span class="unit">参考价格 / 晚</span></div>
+            <a href="https://www.trip.com/hotels/shangri-la-hotel-detail-71661416/hotel-indigo-diqing-moonlight-city-by-ihg/" target="_blank" class="btn-book">立即预订 →</a>
+          </div>
+        </div>
+      </div>
+      <div class="hotel-card recommended">
+        <div class="hotel-header">
+          <p class="hotel-city">大理 · 1晚</p>
+          <h3 class="hotel-name">大理洱海天域英迪格酒店</h3>
+          <div class="hotel-rating"><span class="score">4.7</span><span class="hotel-stars">★★★★★</span><span>IHG 品牌 · 超棒</span></div>
+        </div>
+        <div class="hotel-body">
+          <p class="hotel-address"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>大理市下关镇滨海大道015号</p>
+          <ul class="hotel-features"><li>一线洱海海景，推窗见海</li><li>屋顶无边泳池，打卡拍照圣地</li><li>离高铁站3公里、离机场近，交通便利</li><li>IHG 品牌，服务品质稳定</li></ul>
+          <div class="hotel-footer">
+            <div class="hotel-price"><span class="amount">¥1000 <small>- 1500</small></span><span class="unit">参考价格 / 晚</span></div>
+            <a href="https://hotels.ctrip.com/hotels/3442385.html" target="_blank" class="btn-book">立即预订 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 32px; max-width: 580px; margin-left: auto; margin-right: auto;">
+      <div class="hotel-card">
+        <div class="hotel-header" style="background: linear-gradient(135deg, #F0E6D3, #E5D9B8);">
+          <p class="hotel-city">香格里拉 · 备选</p>
+          <h3 class="hotel-name">香格里拉松赞绿谷酒店</h3>
+          <div class="hotel-rating"><span class="score">9.7</span><span class="hotel-stars">★★★★★</span><span>藏式精品 · 顶级</span></div>
+        </div>
+        <div class="hotel-body">
+          <p class="hotel-address"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>松赞林寺旁</p>
+          <ul class="hotel-features"><li>藏式风格，松赞林寺景观绝佳</li><li>含早晚餐，一价全包省心</li><li>松赞品牌，藏地高端酒店标杆</li></ul>
+          <div class="hotel-footer"><div class="hotel-price"><span class="amount">¥2000 <small>- 3000</small></span><span class="unit">参考价格 / 晚</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section food-section" id="food">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">CULINARY GUIDE</p>
+      <h2 class="section-title">美 食 推 荐</h2>
+      <div class="tibetan-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      <p class="section-desc">从藏式牦牛肉火锅到白族酸辣鱼，品味两地地道风味</p>
+    </div>
+    <div class="food-city-group">
+      <h3 class="food-city-title">香格里拉 · 藏式风味</h3>
+      <div class="food-grid">
+        <div class="food-card">
+          <h4 class="food-name">塔洛藏餐吧（古城店）</h4>
+          <div class="food-meta"><span class="price">¥70-80 / 人</span><span class="hours">🕐 09:30-23:00</span></div>
+          <div class="food-dishes"><p class="food-dishes-label">招牌推荐</p><div class="food-dishes-tags"><span class="food-tag">藏式牦牛肉火锅</span><span class="food-tag">酥油茶</span><span class="food-tag">青稞饼</span><span class="food-tag">手抓牛排</span></div></div>
+          <p style="font-size:13px;color:var(--mid-brown);margin-bottom:10px;">📍 独克宗古城仓房街池廊岗7号小白塔旁</p>
+          <a href="https://hk.trip.com/restaurant/china/shangri-la/detail/tarot-tibetan-food-bar-33254755/" target="_blank" class="food-link">查看详情 →</a>
+        </div>
+        <div class="food-card">
+          <h4 class="food-name">静静的嘛呢石藏餐吧</h4>
+          <div class="food-meta"><span class="price">¥80-100 / 人</span><span class="hours">🕐 10:30-21:30</span></div>
+          <div class="food-dishes"><p class="food-dishes-label">招牌推荐</p><div class="food-dishes-tags"><span class="food-tag">铜锅牦牛肉</span><span class="food-tag">烤松茸</span><span class="food-tag">自酿青稞酒</span></div></div>
+          <p style="font-size:13px;color:var(--mid-brown);margin-bottom:10px;">📍 独克宗古城仓房社区池廊岗8号</p>
+        </div>
+      </div>
+    </div>
+    <div class="food-city-group">
+      <h3 class="food-city-title">大理 · 白族风味</h3>
+      <div class="food-grid">
+        <div class="food-card">
+          <h4 class="food-name">段公子·精品云南菜</h4>
+          <div class="food-meta"><span class="price">¥85-90 / 人</span><span class="hours">🕐 11:00-23:00</span></div>
+          <div class="food-dishes"><p class="food-dishes-label">招牌推荐</p><div class="food-dishes-tags"><span class="food-tag">雕梅扣肉</span><span class="food-tag">风花雪月鱼</span><span class="food-tag">苍山野生菌</span><span class="food-tag">芭蕉叶包烧小山猪</span></div></div>
+          <p style="font-size:13px;color:var(--mid-brown);margin-bottom:10px;">📍 大理古城人民路与博爱路交叉口西行20米路南</p>
+          <a href="https://hk.trip.com/restaurant/china/dali/detail/master-duan-s-restaurant-46599663/" target="_blank" class="food-link">查看详情 →</a>
+        </div>
+        <div class="food-card">
+          <h4 class="food-name">白族特色菜（古城周边）</h4>
+          <div class="food-meta"><span class="price">¥60-80 / 人</span><span class="hours">🕐 全天</span></div>
+          <div class="food-dishes"><p class="food-dishes-label">必点菜品</p><div class="food-dishes-tags"><span class="food-tag">酸辣鱼</span><span class="food-tag">水性杨花</span><span class="food-tag">黄焖鸡</span><span class="food-tag">乳扇</span></div></div>
+          <p style="font-size:13px;color:var(--mid-brown);margin-bottom:10px;">📍 才村/大理古城周边多家白族菜馆可选</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section budget-section" id="budget">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">BUDGET ESTIMATE</p>
+      <h2 class="section-title">预 算 估 算</h2>
+      <div class="tibetan-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      <p class="section-desc">4人总计，国庆假期价格参考</p>
+    </div>
+    <div class="budget-wrap">
+      <div class="budget-total">
+        <p class="budget-total-label">预 计 总 花 费</p>
+        <p class="budget-total-amount">¥22,000 <small>-</small> 31,000</p>
+        <p class="budget-total-note">4人 · 4天3晚 · 国庆假期参考</p>
+      </div>
+      <ul class="budget-list">
+        <li class="budget-item"><div class="budget-item-icon"><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></div><span class="budget-item-label">往返机票</span><span class="budget-item-amount">¥12,000 - 18,000</span></li>
+        <li class="budget-item"><div class="budget-item-icon"><svg viewBox="0 0 24 24"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21V12h6v9"/></svg></div><span class="budget-item-label">住宿（3晚）</span><span class="budget-item-amount">¥4,000 - 6,000</span></li>
+        <li class="budget-item"><div class="budget-item-icon"><svg viewBox="0 0 24 24"><path d="M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></div><span class="budget-item-label">动车（香格里拉→大理）</span><span class="budget-item-amount">¥520</span></li>
+        <li class="budget-item"><div class="budget-item-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div><span class="budget-item-label">包车 / 打车</span><span class="budget-item-amount">¥1,800 - 2,200</span></li>
+        <li class="budget-item"><div class="budget-item-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7L12 2z"/></svg></div><span class="budget-item-label">门票（松赞林寺+普达措+讲解）</span><span class="budget-item-amount">¥1,200</span></li>
+        <li class="budget-item"><div class="budget-item-icon"><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg></div><span class="budget-item-label">餐饮（4天）</span><span class="budget-item-amount">¥2,500 - 3,500</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section packing-section" id="packing">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">PACKING LIST</p>
+      <h2 class="section-title">出 行 必 备 清 单</h2>
+      <div class="tibetan-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      <p class="section-desc">10月高原出行，有备无患</p>
+    </div>
+    <div class="packing-grid">
+      <div class="packing-card"><h4 class="packing-card-title">👕 衣物类</h4><ul class="packing-list"><li>洋葱式三层穿搭（速干+抓绒+冲锋衣）</li><li>薄羽绒服（香格里拉夜间0℃以下）</li><li>防滑徒步鞋</li><li>帽子、墨镜、围巾</li><li>换洗衣物若干</li></ul></div>
+      <div class="packing-card"><h4 class="packing-card-title">💊 高反防护</h4><ul class="packing-list"><li>氧气瓶（当地20-30元/瓶）</li><li>葡萄糖口服液</li><li>红景天（提前3-5天服用）</li><li>感冒药</li><li>肠胃药</li></ul></div>
+      <div class="packing-card"><h4 class="packing-card-title">🧴 防晒保湿</h4><ul class="packing-list"><li>SPF50+ 防晒霜</li><li>保湿面霜</li><li>润唇膏</li><li>保温杯</li><li>补水面膜</li></ul></div>
+      <div class="packing-card"><h4 class="packing-card-title">📋 其他</h4><ul class="packing-list"><li>身份证</li><li>充电宝</li><li>相机/手机</li><li>少量现金</li><li>雨具（备用）</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section tips-section" id="tips">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">IMPORTANT TIPS</p>
+      <h2 class="section-title">重 要 提 醒</h2>
+      <div class="tibetan-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      <p class="section-desc">高原旅行安全第一，这些事项请务必留意</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card"><span class="tip-num">01</span><div class="tip-content"><p class="tip-text"><strong>第一天到香格里拉不要洗澡</strong>，容易感冒诱发高反。建议第二天适应后再洗。</p></div></div>
+      <div class="tip-card"><span class="tip-num">02</span><div class="tip-content"><p class="tip-text"><strong>长辈如有高血压、心脏病</strong>，出发前请咨询医生是否适合上3300米高原。</p></div></div>
+      <div class="tip-card"><span class="tip-num">03</span><div class="tip-content"><p class="tip-text"><strong>普达措海拔3600-4100米</strong>，是全程最高点，务必慢走，走不动可坐环保车。</p></div></div>
+      <div class="tip-card"><span class="tip-num">04</span><div class="tip-content"><p class="tip-text"><strong>国庆假期机票酒店紧张</strong>，建议尽早预订，越临近价格越高且可能无房。</p></div></div>
+      <div class="tip-card"><span class="tip-num">05</span><div class="tip-content"><p class="tip-text"><strong>动车票提前15天在12306购买</strong>，C988次（15:01发车）时间最合适。</p></div></div>
+      <div class="tip-card"><span class="tip-num">06</span><div class="tip-content"><p class="tip-text"><strong>香格里拉昼夜温差15-20℃</strong>，白天15℃左右，夜间可能0℃以下，注意保暖。</p></div></div>
+      <div class="tip-card"><span class="tip-num">07</span><div class="tip-content"><p class="tip-text"><strong>不安排梅里雪山</strong>，单程4小时车程太赶，本次专注香格里拉核心景点，节奏更舒适。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section vs-section" id="vs">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">WHY DALI</p>
+      <h2 class="section-title">为 什 么 选 大 理</h2>
+      <div class="tibetan-divider"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      <p class="section-desc">从香格里拉下来，大理比丽江更适合舒缓收尾</p>
+    </div>
+    <div class="vs-wrap">
+      <div class="vs-city winner">
+        <h3 class="vs-city-name">大理 · 1970m</h3>
+        <ul class="vs-list"><li>海拔仅1970米，比丽江低400米，从香格里拉下来身体更舒适</li><li>洱海环湖地势平坦，长辈散步轻松不累</li><li>古城有摆渡车，不用爬石板台阶</li><li>整体节奏更慢，生活配套更成熟</li><li>海景酒店选择丰富，度假感更强</li><li>机场航班多，返程更方便</li></ul>
+      </div>
+      <div class="vs-divider"><span class="vs-divider-text">VS</span></div>
+      <div class="vs-city">
+        <h3 class="vs-city-name">丽江 · 2400m</h3>
+        <ul class="vs-list"><li>海拔较高，刚从香格里拉下来身体还在恢复期</li><li>古城石板路多、坡度大，长辈走路吃力</li><li>商业化更重，游客密度大</li><li>需额外爬山路去玉龙雪山，行程更赶</li><li>交通相对不便，需中转或坐久车</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-flags"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="container">
+    <p class="footer-quote">「雪山、圣湖、古城 — 愿这段旅途，成为心中永远的月光城」</p>
+    <p class="footer-meta">云南四日秘境之旅 · 行程攻略 · 2025年10月</p>
+  </div>
+</footer>
+
+<script>
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+  document.querySelectorAll('.timeline-item, .overview-card, .hotel-card, .food-card, .packing-card, .tip-card, .budget-item, .vs-city').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
